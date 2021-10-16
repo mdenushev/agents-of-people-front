@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import axios from 'axios';
-import {Analyzer, getReasonByRecord, Match} from "./analyzer";
+import {Analyzer, getReasonByRecord, Match, RecordType} from "./analyzer";
 
 const dataUrl = "https://raw.githubusercontent.com/mdenushev/agent-of-people-data/master/foreign_agents.json"
 
@@ -77,11 +77,11 @@ function App() {
 
         </div>
         <textarea className="text form-control row mb-3" placeholder="Вставьте ваш текст" onInput={textChanged}/>
-        <p id="result-text" className="mx-3" />
+        <p id="result-text" className="mx-3"/>
         {matches.length === 0 ? <p>В тексте не найдены упоминания иноагентов</p> :
           <ul className="list-group list-group-flush">
             {matches.map((m, i) => <li key={i}
-                                       className="list-group-item">{m.record.full_name} {getReasonByRecord(m.record)} от {m.record.date}</li>)}
+                                       className="list-group-item">{m.record.full_name}{m.record.type === RecordType.Organization && m.record.aliases.length !== 0 ? ` (${m.record.aliases[0]})` : null} {getReasonByRecord(m.record)} от {m.record.date}</li>)}
           </ul>}
       </div>
     </div>
