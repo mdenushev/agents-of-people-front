@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/agents-of-people-front/static/css/main.e26cf95d.chunk.css",
+    "main.js": "/agents-of-people-front/static/js/main.e04872ec.chunk.js",
+    "main.js.map": "/agents-of-people-front/static/js/main.e04872ec.chunk.js.map",
+    "runtime-main.js": "/agents-of-people-front/static/js/runtime-main.caf7d072.js",
+    "runtime-main.js.map": "/agents-of-people-front/static/js/runtime-main.caf7d072.js.map",
+    "static/js/2.c9d6a169.chunk.js": "/agents-of-people-front/static/js/2.c9d6a169.chunk.js",
+    "static/js/2.c9d6a169.chunk.js.map": "/agents-of-people-front/static/js/2.c9d6a169.chunk.js.map",
+    "index.html": "/agents-of-people-front/index.html",
+    "static/css/main.e26cf95d.chunk.css.map": "/agents-of-people-front/static/css/main.e26cf95d.chunk.css.map",
+    "static/js/2.c9d6a169.chunk.js.LICENSE.txt": "/agents-of-people-front/static/js/2.c9d6a169.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.caf7d072.js",
+    "static/js/2.c9d6a169.chunk.js",
+    "static/css/main.e26cf95d.chunk.css",
+    "static/js/main.e04872ec.chunk.js"
+  ]
+}
