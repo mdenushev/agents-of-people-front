@@ -54,7 +54,7 @@ export class Analyzer {
     let matches: Match[] = []
     let matchesMap: { [matchKey: string]: boolean } = {}
     let recordsMap: { [fullName: string]: boolean } = {}
-
+    text = ' ' + text // ugly hack, but match all won't work otherwise
     for (const [token, record] of Object.entries(this.tokens)) {
       for (const tokenMatch of text.matchAll(RegExp(token, 'gmi'))) {
         if (tokenMatch.index && tokenMatch[0]) {
@@ -65,7 +65,7 @@ export class Analyzer {
             (firstOccurrence && recordsMap[record.full_name] !== undefined)
           ) continue;
 
-          matches.push({end: tokenMatch.index + tokenMatch[0].length, start: tokenMatch.index, record});
+          matches.push({end: tokenMatch.index -1 + tokenMatch[0].length, start: tokenMatch.index -1, record});
           matchesMap[matchKey] = true;
           recordsMap[record.full_name] = true;
         }

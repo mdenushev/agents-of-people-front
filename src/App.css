@@ -8,6 +8,5 @@ span.highlight {
 }
 
 .result {
-  white-space: pre-wrap;
-  font-size: large;
+  white-space: pre-line;
 }

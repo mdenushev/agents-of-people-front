@@ -44,8 +44,8 @@ function App() {
   let [inputText, setInputText] = useState("");
   let [loading, setLoading] = useState(true);
 
-  function textChanged(e: React.FormEvent<HTMLDivElement>) {
-    setInputText(e.currentTarget.innerText);
+  function textChanged(e: React.FormEvent<HTMLTextAreaElement>) {
+    setInputText(e.currentTarget.value);
     setTextChangedFlag(true);
   }
 
@@ -53,15 +53,12 @@ function App() {
     setLoading(true);
     console.log(inputText)
     let newMatches = analyzer.FindMatches(inputText, true)
-    console.log(analyzer, newMatches);
     setMatches(newMatches);
-    console.log(matches);
-    let element = document.getElementById("text")
+    let element = document.getElementById("result-text")
     if (element !== null) {
       element.innerHTML = highlightMatches(inputText, newMatches)
     }
 
-    // document.getElementsByClassName("text")[0].innerHTML= highlightMatches(inputText, newMatches)
     setLoading(false);
     setTextChangedFlag(false);
   }
@@ -79,9 +76,8 @@ function App() {
           </div>
 
         </div>
-        <div contentEditable={true} onInput={textChanged} className="text form-control row mb-3"
-             placeholder="Вставьте ваш текст"
-             id="text"/>
+        <textarea className="text form-control row mb-3" placeholder="Вставьте ваш текст" onInput={textChanged}/>
+        <p id="result-text" className="mx-3" />
         {matches.length === 0 ? <p>В тексте не найдены упоминания иноагентов</p> :
           <ul className="list-group list-group-flush">
             {matches.map((m, i) => <li key={i}
